@@ -103,9 +103,7 @@ const AboutUsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      {/* Hero Section */}
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-200 to-red-200 text-gray-900">
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-100 via-white to-rose-100 text-gray-900">
         {/* SVG Background */}
         <div className="absolute inset-0 z-0 opacity-20">
           <svg viewBox="0 0 1000 800" className="w-full h-full">
@@ -136,47 +134,6 @@ const AboutUsPage = () => {
         </div>
       </div>
 
-      {/* Mission & Vision */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-1/2">
-            <div className="bg-gradient-to-br from-blue-100 to-red-100 rounded-2xl shadow-xl p-8 text-gray-900">
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-blue-400 to-red-400 p-2 rounded-lg">
-                  <GlobeAmericasIcon className="h-6 w-6 text-white" />
-                </div>
-                <h2 className="text-2xl font-bold ml-3">Our Mission</h2>
-              </div>
-              <p className="text-lg mb-4">
-                To provide innovative financial solutions that empower
-                individuals and businesses to achieve their goals and dreams.
-              </p>
-              <p className="text-gray-700">
-                We believe that access to capital should be simple, transparent,
-                and tailored to each customer's unique circumstances.
-              </p>
-            </div>
-          </div>
-          <div className="md:w-1/2">
-            <div className="bg-gradient-to-br from-red-200 to-blue-300 rounded-2xl shadow-xl p-8 text-gray-900">
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-red-400 to-blue-500 p-2 rounded-lg">
-                  <LightBulbIcon className="h-6 w-6 text-white" />
-                </div>
-                <h2 className="text-2xl font-bold ml-3">Our Vision</h2>
-              </div>
-              <p className="text-lg mb-4">
-                To be Kenya's most trusted financial partner, known for
-                exceptional service and transformative impact.
-              </p>
-              <p className="text-gray-700">
-                We envision a future where every Kenyan has access to the
-                financial tools they need to build prosperity.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Our Story - Timeline */}
       <div className="bg-gradient-to-br from-gray-50 to-gray-100 py-16">

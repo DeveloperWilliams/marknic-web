@@ -81,7 +81,7 @@ const LogbookLoansPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900 to-red-800 text-white">
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-100 via-white to-rose-100 text-gray-900">
         <div className="absolute inset-0 z-0 opacity-20">
           <svg viewBox="0 0 1000 800" className="w-full h-full">
             <path
