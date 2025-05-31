@@ -49,27 +49,23 @@ const LandingPage = () => {
 
   const services = [
     {
-      title: "Logbook Loans",
-      description:
-        "Get cash quickly using your vehicle as collateral while keeping your car",
-      icon: <DocumentTextIcon className="h-8 w-8 text-blue-600" />,
-    },
-    {
-      title: "Business Loans",
-      description: "Funding solutions to help your business grow and thrive",
-      icon: <CurrencyDollarIcon className="h-8 w-8 text-green-600" />,
-    },
-    {
       title: "Personal Loans",
-      description:
-        "Flexible loans for your personal needs with competitive rates",
-      icon: <UserGroupIcon className="h-8 w-8 text-blue-600" />,
+      description: "Flexible personal loan packages tailored to your goals.",
+      href: "/products/personal-loans",
+      image: "/images/personal-loan.jpg",
     },
     {
-      title: "Asset Financing",
+      title: "Log Book Loans",
       description:
-        "Acquire equipment or vehicles while preserving your cash flow",
-      icon: <ChartBarIcon className="h-8 w-8 text-green-600" />,
+        "Secure fast cash using your vehicle logbook — simple and quick.",
+      href: "/products/log-book-loans",
+      image: "/images/log-book-loan.jpg",
+    },
+    {
+      title: "Group Loans",
+      description: "Empower your group with shared access to affordable loans.",
+      href: "/products/group-loans",
+      image: "/images/group-loan.jpg",
     },
   ];
 
@@ -118,28 +114,26 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-gray-50 text-gray-900 overflow-hidden">
+      <div className="relative pt-34 md:pt-16 lg:pt-14 pb-16 md:pb-24 bg-gray-50 text-gray-900 overflow-hidden">
         {/* Floating Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-blue-100 animate-pulse"></div>
-          <div className="absolute bottom-10 right-20 w-64 h-64 rounded-full bg-green-100 animate-pulse delay-1000"></div>
+          <div className="absolute bottom-10 right-20 w-64 h-64 rounded-full bg-red-100 animate-pulse delay-1000"></div>
           <div className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-blue-100 animate-pulse delay-500"></div>
 
           {/* Floating circles */}
           <div className="absolute top-1/4 left-1/4 w-6 h-6 rounded-full bg-blue-200/80 animate-bounce-slow"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-4 h-4 rounded-full bg-green-200/80 animate-bounce-slow delay-500"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-4 h-4 rounded-full bg-red-200/80 animate-bounce-slow delay-500"></div>
           <div className="absolute top-1/2 left-1/3 w-5 h-5 rounded-full bg-blue-200/80 animate-bounce-slow delay-700"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
+            {/* Left Text */}
             <div className="md:w-1/2 mb-12 md:mb-0">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fadeIn">
                 Financial Solutions{" "}
-                <span className="text-blue-600">
-                  Tailored
-                </span>{" "}
-                for You
+                <span className="text-blue-600">Tailored</span> for You
               </h1>
               <p className="text-xl text-gray-700 max-w-xl mb-8 animate-fadeIn delay-150">
                 Fast, flexible, and affordable loan services designed to help
@@ -147,7 +141,7 @@ const LandingPage = () => {
                 days.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-fadeIn delay-300">
-                <button className="bg-blue-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
+                <button className="bg-gradient-to-r from-blue-600 to-red-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
                   Apply for a Loan
                 </button>
                 <button className="bg-transparent border-2 border-gray-900 text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all">
@@ -155,27 +149,22 @@ const LandingPage = () => {
                 </button>
               </div>
             </div>
+
+            {/* Right Image */}
+            {/* Right Image */}
+            {/* Right Image - Clean, No Box/Shadow */}
             <div className="md:w-1/2 flex justify-center">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-blue-100 rounded-2xl blur-xl opacity-30 animate-pulse"></div>
-                <div className="bg-gray-100 border-2 border-gray-100 rounded-2xl w-full h-90 md:h-96 relative overflow-hidden">
-               
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Image
-                      src="/images/Car finance.svg"
-                      alt="Hero Image"
-                      width={600}
-                      height={600}
-                      className="object-cover rounded-2xl shadow-lg"
-                    />
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/images/Car finance.svg"
+                alt="Hero Image"
+                width={600}
+                height={600}
+                className="object-contain w-full h-auto sm:h-[400px] md:h-[500px]"
+              />
             </div>
           </div>
         </div>
       </div>
-
       {/* Services Section */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -194,45 +183,55 @@ const LandingPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
+              <a
+                href={service.href}
                 key={index}
-                className="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-gray-100"
+                className="group bg-gradient-to-br from-blue-50 to-red-50 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-gray-100"
               >
-                <div className="bg-blue-50 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  {service.icon}
+                <div className="relative w-full h-40">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <a
-                  href="#"
-                  className="text-blue-600 font-medium flex items-center hover:text-blue-800 transition-colors"
-                >
-                  Learn more <ArrowRightIcon className="h-4 w-4 ml-2" />
-                </a>
-              </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-blue-700 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <span className="text-blue-600 font-medium flex items-center hover:text-blue-800 transition-colors">
+                    Learn more <ArrowRightIcon className="h-4 w-4 ml-2" />
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
       </div>
 
       {/* Why Choose Us */}
+      {/* Why Choose Us */}
       <div className="py-16 bg-blue-50 text-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
+            {/* Image Section */}
             <div className="md:w-1/2 mb-12 md:mb-0">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <div className="bg-gray-200 border-2 border-gray-300 rounded-2xl w-full h-80 md:h-96 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-green-100/20"></div>
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="bg-gray-300 border-2 border-dashed rounded-xl w-64 h-64" />
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/images/Why.png"
+                alt="Why Choose Us"
+                width={600}
+                height={500}
+                className="w-full h-80 md:h-96 object-cover rounded-2xl"
+                priority
+              />
             </div>
+
+            {/* Content Section */}
             <div className="md:w-1/2 md:pl-12">
               <div className="inline-block mb-4">
                 <span className="text-sm font-semibold tracking-wide uppercase bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
@@ -420,7 +419,7 @@ const LandingPage = () => {
       {/* Stats Section */}
       <div
         ref={statsRef}
-        className="py-16 bg-blue-600 text-white"
+        className="py-16 bg-gradient-to-r from-blue-100 via-purple-50 to-rose-100 text-gray-800"
       >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -431,8 +430,10 @@ const LandingPage = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2">8+</div>
-              <div className="text-blue-100">Years Experience</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-blue-800">
+                8+
+              </div>
+              <div className="text-gray-500">Years Experience</div>
             </div>
             <div
               className={`p-6 transition-all duration-1000 ease-out delay-150 ${
@@ -441,8 +442,10 @@ const LandingPage = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2">25K+</div>
-              <div className="text-blue-100">Clients Served</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-pink-700">
+                25K+
+              </div>
+              <div className="text-gray-500">Clients Served</div>
             </div>
             <div
               className={`p-6 transition-all duration-1000 ease-out delay-300 ${
@@ -451,8 +454,10 @@ const LandingPage = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2">KES 2B+</div>
-              <div className="text-blue-100">Loans Disbursed</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-rose-600">
+                KES 2B+
+              </div>
+              <div className="text-gray-500">Loans Disbursed</div>
             </div>
             <div
               className={`p-6 transition-all duration-1000 ease-out delay-450 ${
@@ -461,33 +466,34 @@ const LandingPage = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2">98%</div>
-              <div className="text-blue-100">Satisfaction Rate</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-green-700">
+                98%
+              </div>
+              <div className="text-gray-500">Satisfaction Rate</div>
             </div>
           </div>
         </div>
       </div>
-
       {/* CTA Section */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="bg-blue-600 rounded-2xl shadow-xl p-12 text-center relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/10 z-0"></div>
-            <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-white/10 z-0"></div>
+          <div className="bg-gradient-to-r from-blue-100 via-white to-rose-100 rounded-2xl shadow-xl p-12 text-center relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-blue-200/20 z-0 blur-2xl"></div>
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-rose-200/20 z-0 blur-2xl"></div>
 
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
                 Ready to Transform Your Financial Future?
               </h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
                 Apply for your loan today and get funds in your account within
                 24 hours
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <button className="bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl">
+                <button className="bg-gradient-to-r from-red-600 to-blue-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-xl">
                   Apply for a Loan
                 </button>
-                <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-all">
+                <button className="bg-transparent border-2 border-blue-600 text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all">
                   Contact Our Team
                 </button>
               </div>

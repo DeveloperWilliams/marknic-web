@@ -112,7 +112,7 @@ const Footer = () => {
                 },
               ].map((item, index) => (
                 <li key={index} className="flex items-start group">
-                  <div className="mt-0.5 bg-gradient-to-r from-blue-600 to-red-600 p-1.5 rounded-lg mr-3 group-hover:animate-pulse">
+                  <div className="mt-0.5 p-1.5 rounded-lg mr-3 group-hover:animate-pulse">
                     {item.icon}
                   </div>
                   <span className="text-gray-300 group-hover:text-white transition-colors duration-300 cursor-pointer">
