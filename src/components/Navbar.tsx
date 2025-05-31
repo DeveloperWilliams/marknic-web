@@ -4,7 +4,6 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
@@ -17,23 +16,14 @@ const Navbar = () => {
     { 
       name: 'Products', 
       subLinks: [
-        { name: 'Personal Loan', href: '/products/personal-loan' },
-        { name: 'Log Book Loan', href: '/products/log-book-loan' },
-        { name: 'Group Loan', href: '/products/group-loan' },
+        { name: 'Personal Loan', href: '/products/personal-loans' },
+        { name: 'Log Book Loan', href: '/products/log-book-loans' },
+        { name: 'Group Loan', href: '/products/group-loans' },
       ] 
     },
     { name: 'How it works', href: '/how-it-works' },
     { name: 'Contact', href: '/contact' },
   ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -65,11 +55,7 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-sm shadow-lg py-2' 
-          : 'bg-white/90 py-4'
-      }`}
+      className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg py-3"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -217,13 +203,18 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu - FIXED: Replaced translate with opacity/visibility */}
+      {/* Mobile Menu - Fixed full screen with animation */}
       <div 
-        className={`md:hidden fixed inset-0 bg-white z-40 transition-all duration-500 ease-in-out overflow-y-auto ${
-          mobileMenuOpen 
-            ? 'opacity-100 visible' 
-            : 'opacity-0 invisible'
+        className={`md:hidden fixed inset-0 z-50 bg-white transition-all duration-300 ease-in-out transform ${
+          mobileMenuOpen
+            ? 'translate-y-0 opacity-100'
+            : '-translate-y-full opacity-0'
         }`}
+        style={{ 
+          height: '100vh', 
+          top: mobileMenuOpen ? '0' : '-100%',
+          display: mobileMenuOpen ? 'block' : 'none'
+        }}
       >
         <div className="h-full flex flex-col">
           <div className="flex justify-between items-center p-6 border-b border-gray-100">
@@ -248,7 +239,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu links */}
-          <div className="flex-grow px-6 py-8 flex flex-col space-y-6">
+          <div className="flex-grow px-6 py-8 flex flex-col space-y-6 overflow-y-auto">
             {navLinks.map((link) => {
               if (link.subLinks) {
                 return (
