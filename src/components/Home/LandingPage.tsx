@@ -13,6 +13,7 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const LandingPage = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -25,7 +26,7 @@ const LandingPage = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      
+
       // Check if stats section is in view
       if (statsRef.current) {
         const rect = statsRef.current.getBoundingClientRect();
@@ -56,7 +57,7 @@ const LandingPage = () => {
     {
       title: "Business Loans",
       description: "Funding solutions to help your business grow and thrive",
-      icon: <CurrencyDollarIcon className="h-8 w-8 text-red-600" />,
+      icon: <CurrencyDollarIcon className="h-8 w-8 text-green-600" />,
     },
     {
       title: "Personal Loans",
@@ -68,7 +69,7 @@ const LandingPage = () => {
       title: "Asset Financing",
       description:
         "Acquire equipment or vehicles while preserving your cash flow",
-      icon: <ChartBarIcon className="h-8 w-8 text-red-600" />,
+      icon: <ChartBarIcon className="h-8 w-8 text-green-600" />,
     },
   ];
 
@@ -81,12 +82,12 @@ const LandingPage = () => {
     {
       title: "Competitive Rates",
       description: "Enjoy some of the lowest interest rates in Kenya",
-      icon: <CurrencyDollarIcon className="h-6 w-6 text-red-600" />,
+      icon: <CurrencyDollarIcon className="h-6 w-6 text-green-600" />,
     },
     {
       title: "Secure Process",
       description: "Bank-level security for all your financial data",
-      icon: <ShieldCheckIcon className="h-6 w-6 text-red-600" />,
+      icon: <ShieldCheckIcon className="h-6 w-6 text-green-600" />,
     },
   ];
 
@@ -116,53 +117,57 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-
-
       {/* Hero Section */}
-      <div className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-r from-blue-900 to-red-800 text-white overflow-hidden">
+      <div className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-gray-50 text-gray-900 overflow-hidden">
         {/* Floating Elements */}
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-blue-500/20 animate-pulse"></div>
-          <div className="absolute bottom-10 right-20 w-64 h-64 rounded-full bg-red-500/20 animate-pulse delay-1000"></div>
-          <div className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-blue-400/20 animate-pulse delay-500"></div>
-          
+          <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-blue-100 animate-pulse"></div>
+          <div className="absolute bottom-10 right-20 w-64 h-64 rounded-full bg-green-100 animate-pulse delay-1000"></div>
+          <div className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-blue-100 animate-pulse delay-500"></div>
+
           {/* Floating circles */}
-          <div className="absolute top-1/4 left-1/4 w-6 h-6 rounded-full bg-white/30 animate-bounce-slow"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-4 h-4 rounded-full bg-white/20 animate-bounce-slow delay-500"></div>
-          <div className="absolute top-1/2 left-1/3 w-5 h-5 rounded-full bg-white/25 animate-bounce-slow delay-700"></div>
+          <div className="absolute top-1/4 left-1/4 w-6 h-6 rounded-full bg-blue-200/80 animate-bounce-slow"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-4 h-4 rounded-full bg-green-200/80 animate-bounce-slow delay-500"></div>
+          <div className="absolute top-1/2 left-1/3 w-5 h-5 rounded-full bg-blue-200/80 animate-bounce-slow delay-700"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-12 md:mb-0">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fadeIn">
                 Financial Solutions{" "}
-                <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+                <span className="text-blue-600">
                   Tailored
                 </span>{" "}
                 for You
               </h1>
-              <p className="text-xl text-blue-100 max-w-xl mb-8 animate-fadeIn delay-150">
+              <p className="text-xl text-gray-700 max-w-xl mb-8 animate-fadeIn delay-150">
                 Fast, flexible, and affordable loan services designed to help
                 you achieve your financial goals. Get approved in minutes, not
                 days.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-fadeIn delay-300">
-                <button className="bg-gradient-to-r from-blue-600 to-red-600 text-white font-bold px-8 py-4 rounded-lg hover:from-blue-700 hover:to-red-700 transition-all shadow-lg hover:shadow-xl">
+                <button className="bg-blue-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
                   Apply for a Loan
                 </button>
-                <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-all">
+                <button className="bg-transparent border-2 border-gray-900 text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all">
                   How It Works
                 </button>
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-red-600 rounded-2xl blur-xl opacity-30 animate-pulse"></div>
-                <div className="bg-gray-200 border-2 border-gray-300 rounded-2xl w-full h-80 md:h-96 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-red-500/10"></div>
+                <div className="absolute -inset-4 bg-blue-100 rounded-2xl blur-xl opacity-30 animate-pulse"></div>
+                <div className="bg-gray-100 border-2 border-gray-100 rounded-2xl w-full h-90 md:h-96 relative overflow-hidden">
+               
                   <div className="w-full h-full flex items-center justify-center">
-                    <div className="bg-gray-300 border-2 border-dashed rounded-xl w-64 h-64" />
+                    <Image
+                      src="/images/Car finance.svg"
+                      alt="Hero Image"
+                      width={600}
+                      height={600}
+                      className="object-cover rounded-2xl shadow-lg"
+                    />
                   </div>
                 </div>
               </div>
@@ -176,11 +181,13 @@ const LandingPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-block mb-4">
-              <span className="text-sm font-semibold tracking-wide uppercase bg-gradient-to-r from-blue-100 to-red-100 text-blue-600 px-4 py-2 rounded-full">
+              <span className="text-sm font-semibold tracking-wide uppercase bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
                 Our Offerings
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Financial Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Financial Services
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Comprehensive solutions designed to meet your diverse financial
               needs
@@ -193,10 +200,12 @@ const LandingPage = () => {
                 key={index}
                 className="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-lg p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-gray-100"
               >
-                <div className="bg-gradient-to-r from-blue-100 to-red-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div className="bg-blue-50 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">{service.title}</h3>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <a
                   href="#"
@@ -211,13 +220,13 @@ const LandingPage = () => {
       </div>
 
       {/* Why Choose Us */}
-      <div className="py-16 bg-gradient-to-r from-blue-900 to-red-800 text-white">
+      <div className="py-16 bg-blue-50 text-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-12 md:mb-0">
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <div className="bg-gray-200 border-2 border-gray-300 rounded-2xl w-full h-80 md:h-96 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-red-500/20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-green-100/20"></div>
                   <div className="w-full h-full flex items-center justify-center">
                     <div className="bg-gray-300 border-2 border-dashed rounded-xl w-64 h-64" />
                   </div>
@@ -226,14 +235,14 @@ const LandingPage = () => {
             </div>
             <div className="md:w-1/2 md:pl-12">
               <div className="inline-block mb-4">
-                <span className="text-sm font-semibold tracking-wide uppercase bg-gradient-to-r from-blue-500/20 to-red-500/20 text-blue-100 px-4 py-2 rounded-full">
+                <span className="text-sm font-semibold tracking-wide uppercase bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
                   Why Choose Us
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Your Trusted Financial Partner
               </h2>
-              <p className="text-xl text-blue-100 mb-8">
+              <p className="text-xl text-gray-700 mb-8">
                 We're committed to providing exceptional financial services with
                 transparency and integrity.
               </p>
@@ -242,7 +251,7 @@ const LandingPage = () => {
                 {features.map((feature, index) => (
                   <div key={index} className="flex">
                     <div className="flex-shrink-0">
-                      <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center">
+                      <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md">
                         {feature.icon}
                       </div>
                     </div>
@@ -250,7 +259,7 @@ const LandingPage = () => {
                       <h3 className="text-xl font-bold mb-1">
                         {feature.title}
                       </h3>
-                      <p className="text-blue-100">{feature.description}</p>
+                      <p className="text-gray-700">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -265,11 +274,13 @@ const LandingPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-block mb-4">
-              <span className="text-sm font-semibold tracking-wide uppercase bg-gradient-to-r from-blue-100 to-red-100 text-blue-600 px-4 py-2 rounded-full">
+              <span className="text-sm font-semibold tracking-wide uppercase bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
                 Our Process
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple & Transparent</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Simple & Transparent
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Get the funds you need in just four easy steps
             </p>
@@ -278,7 +289,7 @@ const LandingPage = () => {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
               {/* Connecting line */}
-              <div className="hidden lg:block absolute top-16 left-1/4 right-1/4 h-1 bg-gradient-to-r from-blue-500 to-red-500 z-0"></div>
+              <div className="hidden lg:block absolute top-16 left-1/4 right-1/4 h-1 bg-blue-200 z-0"></div>
 
               {[
                 {
@@ -286,7 +297,7 @@ const LandingPage = () => {
                   title: "Apply Online",
                   description: "Complete our simple application in minutes",
                   icon: (
-                    <div className="bg-gradient-to-r from-blue-600 to-red-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                    <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                       1
                     </div>
                   ),
@@ -296,7 +307,7 @@ const LandingPage = () => {
                   title: "Submit Documents",
                   description: "Provide required documents digitally",
                   icon: (
-                    <div className="bg-gradient-to-r from-blue-600 to-red-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                    <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                       2
                     </div>
                   ),
@@ -306,7 +317,7 @@ const LandingPage = () => {
                   title: "Get Approved",
                   description: "Receive decision within hours",
                   icon: (
-                    <div className="bg-gradient-to-r from-blue-600 to-red-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                    <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                       3
                     </div>
                   ),
@@ -316,7 +327,7 @@ const LandingPage = () => {
                   title: "Receive Funds",
                   description: "Money in your account within 24 hours",
                   icon: (
-                    <div className="bg-gradient-to-r from-blue-600 to-red-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                    <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                       4
                     </div>
                   ),
@@ -340,22 +351,25 @@ const LandingPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-block mb-4">
-              <span className="text-sm font-semibold tracking-wide uppercase bg-gradient-to-r from-blue-100 to-red-100 text-blue-600 px-4 py-2 rounded-full">
+              <span className="text-sm font-semibold tracking-wide uppercase bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
                 Testimonials
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Success Stories</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Client Success Stories
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Hear from satisfied customers who have transformed their financial situation
+              Hear from satisfied customers who have transformed their financial
+              situation
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 to-red-600 rounded-t-2xl"></div>
-              <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-blue-500/10 z-0"></div>
-              <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-red-500/10 z-0"></div>
-              
+              <div className="absolute top-0 left-0 w-full h-2 bg-blue-600 rounded-t-2xl"></div>
+              <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-blue-100 z-0"></div>
+              <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-green-100 z-0"></div>
+
               <div className="text-center relative z-10">
                 <div className="bg-gray-200 border-2 border-gray-300 rounded-full w-16 h-16 mx-auto mb-6 overflow-hidden">
                   {testimonials[activeTestimonial]?.avatar && (
@@ -364,11 +378,11 @@ const LandingPage = () => {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="min-h-[150px] md:min-h-[200px]">
                   {testimonials.map((testimonial, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className={`transition-all duration-500 ease-in-out ${
                         activeTestimonial === index
                           ? "opacity-100 block"
@@ -383,7 +397,7 @@ const LandingPage = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="flex justify-center mt-8 space-x-2">
                   {[0, 1, 2].map((index) => (
                     <button
@@ -391,7 +405,7 @@ const LandingPage = () => {
                       onClick={() => setActiveTestimonial(index)}
                       className={`w-3 h-3 rounded-full transition-all ${
                         activeTestimonial === index
-                          ? "bg-gradient-to-r from-blue-600 to-red-600 scale-125"
+                          ? "bg-blue-600 scale-125"
                           : "bg-gray-300"
                       }`}
                     />
@@ -404,25 +418,49 @@ const LandingPage = () => {
       </div>
 
       {/* Stats Section */}
-      <div 
+      <div
         ref={statsRef}
-        className="py-16 bg-gradient-to-r from-blue-900 to-red-800 text-white"
+        className="py-16 bg-blue-600 text-white"
       >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className={`p-6 transition-all duration-1000 ease-out ${statsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <div
+              className={`p-6 transition-all duration-1000 ease-out ${
+                statsInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
               <div className="text-4xl md:text-5xl font-bold mb-2">8+</div>
               <div className="text-blue-100">Years Experience</div>
             </div>
-            <div className={`p-6 transition-all duration-1000 ease-out delay-150 ${statsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <div
+              className={`p-6 transition-all duration-1000 ease-out delay-150 ${
+                statsInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
               <div className="text-4xl md:text-5xl font-bold mb-2">25K+</div>
               <div className="text-blue-100">Clients Served</div>
             </div>
-            <div className={`p-6 transition-all duration-1000 ease-out delay-300 ${statsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <div
+              className={`p-6 transition-all duration-1000 ease-out delay-300 ${
+                statsInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
               <div className="text-4xl md:text-5xl font-bold mb-2">KES 2B+</div>
               <div className="text-blue-100">Loans Disbursed</div>
             </div>
-            <div className={`p-6 transition-all duration-1000 ease-out delay-450 ${statsInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <div
+              className={`p-6 transition-all duration-1000 ease-out delay-450 ${
+                statsInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
               <div className="text-4xl md:text-5xl font-bold mb-2">98%</div>
               <div className="text-blue-100">Satisfaction Rate</div>
             </div>
@@ -433,16 +471,17 @@ const LandingPage = () => {
       {/* CTA Section */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-blue-600 to-red-600 rounded-2xl shadow-xl p-12 text-center relative overflow-hidden">
+          <div className="bg-blue-600 rounded-2xl shadow-xl p-12 text-center relative overflow-hidden">
             <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/10 z-0"></div>
             <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-white/10 z-0"></div>
-            
+
             <div className="relative z-10">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Ready to Transform Your Financial Future?
               </h2>
               <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-                Apply for your loan today and get funds in your account within 24 hours
+                Apply for your loan today and get funds in your account within
+                24 hours
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <button className="bg-white text-blue-600 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl">
@@ -461,7 +500,7 @@ const LandingPage = () => {
       <div className="fixed bottom-6 right-6 z-50 animate-bounce-slow">
         <a
           href="#"
-          className="bg-gradient-to-r from-blue-600 to-red-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:from-blue-700 hover:to-red-700 transition-all"
+          className="bg-green-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-green-600 transition-all"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -473,7 +512,6 @@ const LandingPage = () => {
           <span className="ml-2 font-medium hidden sm:inline">WhatsApp</span>
         </a>
       </div>
-
     </div>
   );
 };
