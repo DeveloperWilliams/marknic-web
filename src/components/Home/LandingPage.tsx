@@ -150,8 +150,6 @@ const LandingPage = () => {
               </div>
             </div>
 
-            {/* Right Image */}
-            {/* Right Image */}
             {/* Right Image - Clean, No Box/Shadow */}
             <div className="md:w-1/2 flex justify-center">
               <Image
@@ -165,6 +163,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
       {/* Services Section */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -219,19 +218,23 @@ const LandingPage = () => {
       <div className="py-16 bg-blue-50 text-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
-            {/* Image Section */}
             <div className="md:w-1/2 mb-12 md:mb-0">
-              <Image
-                src="/images/Why.png"
-                alt="Why Choose Us"
-                width={600}
-                height={500}
-                className="w-full h-80 md:h-96 object-cover rounded-2xl"
-                priority
-              />
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <div className="bg-gray-100 border-2 border-gray-100 rounded-2xl w-full h-80 md:h-96 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-green-100/20"></div>
+                  <div className="w-full h-full flex items-center justify-center">
+                    <Image
+                      src="/images/Why.svg"
+                      alt="Why Choose Us"
+                      width={600}
+                      height={500}
+                      className="object-cover w-full h-full"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-
-            {/* Content Section */}
             <div className="md:w-1/2 md:pl-12">
               <div className="inline-block mb-4">
                 <span className="text-sm font-semibold tracking-wide uppercase bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
@@ -466,7 +469,7 @@ const LandingPage = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-green-700">
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-red-700">
                 98%
               </div>
               <div className="text-gray-500">Satisfaction Rate</div>

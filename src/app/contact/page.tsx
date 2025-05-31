@@ -148,31 +148,31 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900 to-red-800 text-white">
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-100 via-white to-rose-100 text-gray-900">
         {/* SVG Background */}
         <div className="absolute inset-0 z-0 opacity-20">
           <svg viewBox="0 0 1000 800" className="w-full h-full">
             <path
               d="M0,100 C150,200 350,0 500,100 C650,200 750,300 1000,100 L1000,00 L0,0 Z"
               fill="currentColor"
-              className="text-blue-500"
+              className="text-blue-300"
             ></path>
           </svg>
         </div>
 
         {/* Animated Circles */}
-        <div className="absolute top-20 left-10 w-24 h-24 rounded-full bg-blue-500/10 animate-pulse"></div>
-        <div className="absolute bottom-10 right-20 w-32 h-32 rounded-full bg-red-500/10 animate-pulse delay-700"></div>
+        <div className="absolute top-20 left-10 w-24 h-24 rounded-full bg-blue-300/20 animate-pulse"></div>
+        <div className="absolute bottom-10 right-20 w-32 h-32 rounded-full bg-rose-300/20 animate-pulse delay-700"></div>
 
         <div className="container mx-auto px-4 py-28 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fadeInDown">
               Get in{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 to-rose-400 bg-clip-text text-transparent">
                 Touch
               </span>
             </h1>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 animate-fadeInDown delay-150">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 animate-fadeInDown delay-150">
               We're here to help you with all your financial needs. Reach out to
               us through any channel and we'll respond promptly.
             </p>
@@ -344,60 +344,59 @@ const ContactPage = () => {
           {/* Contact Information & Map */}
           <div className="space-y-8">
             {/* Contact Methods */}
-            
 
             {/* Contact Info */}
-            <div className="bg-gradient-to-br from-blue-900 to-red-800 rounded-2xl shadow-xl p-8 text-white animate-on-scroll">
+            <div className="bg-gradient-to-br from-blue-100 via-white to-rose-100 rounded-2xl shadow-xl p-8 text-gray-800 animate-on-scroll">
               <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
 
               <div className="space-y-6">
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <DevicePhoneMobileIcon className="h-6 w-6 text-blue-300" />
+                    <DevicePhoneMobileIcon className="h-6 w-6 text-blue-500" />
                   </div>
                   <div className="ml-4">
                     <h3 className="font-bold text-lg">Phone Numbers</h3>
-                    <p className="text-blue-100 mt-1">+254 712 345 678</p>
-                    <p className="text-blue-100">+254 734 567 890</p>
+                    <p className="text-gray-600 mt-1">+254 712 345 678</p>
+                    <p className="text-gray-600">+254 734 567 890</p>
                   </div>
                 </div>
 
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <EnvelopeIcon className="h-6 w-6 text-blue-300" />
+                    <EnvelopeIcon className="h-6 w-6 text-blue-500" />
                   </div>
                   <div className="ml-4">
                     <h3 className="font-bold text-lg">Email Addresses</h3>
-                    <p className="text-blue-100 mt-1">support@marknic.co.ke</p>
-                    <p className="text-blue-100">loans@marknic.co.ke</p>
+                    <p className="text-gray-600 mt-1">support@marknic.co.ke</p>
+                    <p className="text-gray-600">loans@marknic.co.ke</p>
                   </div>
                 </div>
 
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <MapPinIcon className="h-6 w-6 text-blue-300" />
+                    <MapPinIcon className="h-6 w-6 text-blue-500" />
                   </div>
                   <div className="ml-4">
                     <h3 className="font-bold text-lg">Our Location</h3>
-                    <p className="text-blue-100 mt-1">
+                    <p className="text-gray-600 mt-1">
                       Westlands Business Center
                     </p>
-                    <p className="text-blue-100">3rd Floor, Suite 302</p>
-                    <p className="text-blue-100">Nairobi, Kenya</p>
+                    <p className="text-gray-600">3rd Floor, Suite 302</p>
+                    <p className="text-gray-600">Nairobi, Kenya</p>
                   </div>
                 </div>
 
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <ClockIcon className="h-6 w-6 text-blue-300" />
+                    <ClockIcon className="h-6 w-6 text-blue-500" />
                   </div>
                   <div className="ml-4">
                     <h3 className="font-bold text-lg">Working Hours</h3>
-                    <p className="text-blue-100 mt-1">
+                    <p className="text-gray-600 mt-1">
                       Monday - Friday: 8:00 AM - 6:00 PM
                     </p>
-                    <p className="text-blue-100">Saturday: 9:00 AM - 2:00 PM</p>
-                    <p className="text-blue-100">Sunday: Closed</p>
+                    <p className="text-gray-600">Saturday: 9:00 AM - 2:00 PM</p>
+                    <p className="text-gray-600">Sunday: Closed</p>
                   </div>
                 </div>
               </div>
