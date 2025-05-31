@@ -82,7 +82,7 @@ const PersonalLoansPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-800 to-red-800 text-white">
+      <div className="relative overflow-hidden bg-gradient-to-r from-white-100 via-grey to-grey-800 text-white h-min-screen">
         <div className="absolute inset-0 z-0 opacity-20">
           <svg viewBox="0 0 1000 800" className="w-full h-full">
             <path
@@ -100,20 +100,20 @@ const PersonalLoansPage = () => {
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="md:w-1/2">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeInDown">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeInDown text-blue-700">
                   Personal Loans for{" "}
                   <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
                     Your Financial Freedom
                   </span>
                 </h1>
-                <p className="text-xl text-blue-100 mb-8 animate-fadeInDown delay-150">
+                <p className="text-xl text-black mb-8 animate-fadeInDown delay-150">
                   Get the funds you need for life's opportunities - no collateral required. Quick approvals and flexible repayment options.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <button className="bg-gradient-to-r from-blue-600 to-red-600 text-white font-bold px-8 py-4 rounded-lg hover:from-blue-700 hover:to-red-700 transition-all">
                     Apply Now
                   </button>
-                  <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-all">
+                  <button className="bg-blue-700 border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-all">
                     Check Eligibility
                   </button>
                 </div>
@@ -158,7 +158,7 @@ const PersonalLoansPage = () => {
       </div>
 
       {/* Loan Calculator */}
-      <div className="py-16 bg-gradient-to-r from-blue-900 to-red-800 text-white">
+      <div className="py-16 bg-gradient-to-r  from-blue-100 via-white to-rose-100 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-8 text-gray-800">
@@ -438,7 +438,7 @@ const PersonalLoansPage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="py-16 bg-gradient-to-r from-blue-600 to-red-600 text-white">
+      <div className="py-16 bg-gradient-to-r from-blue-300 via-grey to-red-300 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <ShieldCheckIcon className="h-16 w-16 mx-auto text-white mb-6" />
