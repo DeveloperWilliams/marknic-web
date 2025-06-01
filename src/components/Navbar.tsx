@@ -1,7 +1,8 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import Link from 'next/link';
+"use client";
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,20 +10,20 @@ const Navbar = () => {
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  
+
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { 
-      name: 'Products', 
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    {
+      name: "Products",
       subLinks: [
-        { name: 'Personal Loan', href: '/products/personal-loans' },
-        { name: 'Log Book Loan', href: '/products/log-book-loans' },
-        { name: 'Group Loan', href: '/products/group-loans' },
-      ] 
+        { name: "Personal Loan", href: "/products/personal-loans" },
+        { name: "Log Book Loan", href: "/products/log-book-loans" },
+        { name: "Group Loan", href: "/products/group-loans" },
+      ],
     },
-    { name: 'How it works', href: '/how-it-works' },
-    { name: 'Contact', href: '/contact' },
+    { name: "How it works", href: "/how-it-works" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const closeMobileMenu = () => {
@@ -36,41 +37,38 @@ const Navbar = () => {
 
   // Check if current route is active
   const isActive = (href: string) => pathname === href;
-  
+
   // Check if products route is active
-  const isProductsActive = () => pathname.startsWith('/products');
+  const isProductsActive = () => pathname.startsWith("/products");
 
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
-    
+
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [mobileMenuOpen]);
 
   return (
-    <nav 
-      className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg py-3"
-    >
+    <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="group inline-block">
             <div className="relative">
-              <div className="bg-gradient-to-r from-blue-600 to-red-600 w-12 h-12 rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-                <span className="text-white font-bold text-xl">N</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white transform group-hover:scale-110 transition-transform duration-300"></div>
-              <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white transform group-hover:scale-110 transition-transform duration-300"></div>
+              <Image
+                src="/images/logo.png"
+                alt="Marknic Credit Logo"
+                className="object-contain"
+                width={120}
+                height={120}
+                priority
+              />
             </div>
-            <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
-              Marknic Credit
-            </span>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -78,7 +76,7 @@ const Navbar = () => {
             {navLinks.map((link) => {
               if (link.subLinks) {
                 return (
-                  <div 
+                  <div
                     key={link.name}
                     className="relative"
                     onMouseEnter={() => setIsProductsHovered(true)}
@@ -86,24 +84,31 @@ const Navbar = () => {
                   >
                     <button
                       className={`relative font-medium group transition-colors duration-300 flex items-center ${
-                        isProductsActive() 
-                          ? 'text-blue-600' 
-                          : 'text-gray-700 hover:text-blue-600'
+                        isProductsActive()
+                          ? "text-blue-600"
+                          : "text-gray-700 hover:text-blue-600"
                       }`}
                     >
                       {link.name}
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className={`ml-1 h-4 w-4 transition-transform duration-200 ${isProductsHovered ? 'rotate-180' : ''}`}
-                        fill="none" 
-                        viewBox="0 0 24 24" 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`ml-1 h-4 w-4 transition-transform duration-200 ${
+                          isProductsHovered ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
-                      <span 
+                      <span
                         className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-red-600 transition-all duration-300 group-hover:w-full ${
-                          isProductsActive() ? 'w-full' : ''
+                          isProductsActive() ? "w-full" : ""
                         }`}
                       ></span>
                     </button>
@@ -117,7 +122,9 @@ const Navbar = () => {
                               key={subLink.name}
                               href={subLink.href}
                               className={`block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors ${
-                                isActive(subLink.href) ? 'bg-blue-50 text-blue-600' : ''
+                                isActive(subLink.href)
+                                  ? "bg-blue-50 text-blue-600"
+                                  : ""
                               }`}
                             >
                               {subLink.name}
@@ -130,19 +137,19 @@ const Navbar = () => {
                 );
               } else {
                 return (
-                  <Link 
+                  <Link
                     key={link.name}
                     href={link.href}
                     className={`relative font-medium group transition-colors duration-300 ${
-                      isActive(link.href) 
-                        ? 'text-blue-600' 
-                        : 'text-gray-700 hover:text-blue-600'
+                      isActive(link.href)
+                        ? "text-blue-600"
+                        : "text-gray-700 hover:text-blue-600"
                     }`}
                   >
                     {link.name}
-                    <span 
+                    <span
                       className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-red-600 transition-all duration-300 group-hover:w-full ${
-                        isActive(link.href) ? 'w-full' : ''
+                        isActive(link.href) ? "w-full" : ""
                       }`}
                     ></span>
                   </Link>
@@ -155,32 +162,32 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <div className="bg-gradient-to-r from-blue-600 to-red-600 p-1 rounded-full shadow-md">
               <div className="bg-white p-2 rounded-full flex items-center justify-center">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-5 w-5 text-blue-600" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
               </div>
             </div>
-            <a 
-              href="tel:+2540715046021" 
+            <a
+              href="tel:+2540715046021"
               className="ml-3 font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300"
             >
-             +254 (0) 715 04-6021
+              +254 (0) 715 04-6021
             </a>
           </div>
 
           {/* Mobile menu button */}
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden focus:outline-none"
             aria-label="Toggle menu"
@@ -204,16 +211,16 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu - Fixed full screen with animation */}
-      <div 
+      <div
         className={`md:hidden fixed inset-0 z-50 bg-white transition-all duration-300 ease-in-out transform ${
           mobileMenuOpen
-            ? 'translate-y-0 opacity-100'
-            : '-translate-y-full opacity-0'
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-full opacity-0"
         }`}
-        style={{ 
-          height: '100vh', 
-          top: mobileMenuOpen ? '0' : '-100%',
-          display: mobileMenuOpen ? 'block' : 'none'
+        style={{
+          height: "100vh",
+          top: mobileMenuOpen ? "0" : "-100%",
+          display: mobileMenuOpen ? "block" : "none",
         }}
       >
         <div className="h-full flex flex-col">
@@ -226,7 +233,7 @@ const Navbar = () => {
                 Marknic Credit
               </span>
             </div>
-            <button 
+            <button
               onClick={closeMobileMenu}
               className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
               aria-label="Close menu"
@@ -247,9 +254,9 @@ const Navbar = () => {
                     <button
                       onClick={() => setIsProductsMenuOpen(!isProductsMenuOpen)}
                       className={`text-2xl font-semibold py-3 px-4 rounded-xl transition-all duration-300 w-full text-left flex justify-between items-center ${
-                        isProductsActive() 
-                          ? 'bg-gradient-to-r from-blue-50 to-red-50 text-blue-600' 
-                          : 'text-gray-700 hover:bg-gray-50'
+                        isProductsActive()
+                          ? "bg-gradient-to-r from-blue-50 to-red-50 text-blue-600"
+                          : "text-gray-700 hover:bg-gray-50"
                       }`}
                     >
                       <div className="flex items-center">
@@ -258,14 +265,21 @@ const Navbar = () => {
                           <div className="ml-2 w-2 h-2 bg-blue-600 rounded-full"></div>
                         )}
                       </div>
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className={`h-5 w-5 transition-transform duration-300 ${isProductsMenuOpen ? 'transform rotate-180' : ''}`}
-                        fill="none" 
-                        viewBox="0 0 24 24" 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`h-5 w-5 transition-transform duration-300 ${
+                          isProductsMenuOpen ? "transform rotate-180" : ""
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </button>
 
@@ -277,9 +291,9 @@ const Navbar = () => {
                             key={subLink.name}
                             href={subLink.href}
                             className={`block text-xl py-2 px-4 rounded-xl transition-all duration-300 ${
-                              isActive(subLink.href) 
-                                ? 'bg-gradient-to-r from-blue-50 to-red-50 text-blue-600' 
-                                : 'text-gray-700 hover:bg-gray-50'
+                              isActive(subLink.href)
+                                ? "bg-gradient-to-r from-blue-50 to-red-50 text-blue-600"
+                                : "text-gray-700 hover:bg-gray-50"
                             }`}
                             onClick={closeMobileMenu}
                           >
@@ -292,13 +306,13 @@ const Navbar = () => {
                 );
               } else {
                 return (
-                  <Link 
+                  <Link
                     key={link.name}
                     href={link.href}
                     className={`text-2xl font-semibold py-3 px-4 rounded-xl transition-all duration-300 ${
-                      isActive(link.href) 
-                        ? 'bg-gradient-to-r from-blue-50 to-red-50 text-blue-600' 
-                        : 'text-gray-700 hover:bg-gray-50'
+                      isActive(link.href)
+                        ? "bg-gradient-to-r from-blue-50 to-red-50 text-blue-600"
+                        : "text-gray-700 hover:bg-gray-50"
                     }`}
                     onClick={closeMobileMenu}
                   >
@@ -313,31 +327,33 @@ const Navbar = () => {
               }
             })}
           </div>
-          
+
           {/* Phone number in mobile menu */}
           <div className="mt-auto mb-8 px-6">
             <div className="bg-gradient-to-r from-blue-600 to-red-600 rounded-2xl p-6 shadow-lg">
               <div className="flex items-center">
                 <div className="bg-white p-3 rounded-full shadow-md">
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-6 w-6 text-blue-600" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <p className="text-white/80 text-sm font-medium">Call us anytime</p>
-                  <a 
-                    href="tel:+2540715046021" 
+                  <p className="text-white/80 text-sm font-medium">
+                    Call us anytime
+                  </p>
+                  <a
+                    href="tel:+2540715046021"
                     className="text-xl font-bold text-white mt-1 block"
                   >
                     +254 (0) 715 04-6021
