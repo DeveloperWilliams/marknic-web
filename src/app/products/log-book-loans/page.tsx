@@ -10,6 +10,7 @@ import {
   QuestionMarkCircleIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const LogbookLoansPage = () => {
   const [loanAmount, setLoanAmount] = useState(300000);
@@ -81,50 +82,57 @@ const LogbookLoansPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-100 via-white to-rose-100 text-gray-900">
-        <div className="absolute inset-0 z-0 opacity-20">
+      <div className="relative pt-32 md:pt-16 lg:pt-14 pb-16 md:pb-24 bg-gray-50 text-gray-900 overflow-hidden">
+        {/* Decorative SVG Wave Background */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
           <svg viewBox="0 0 1000 800" className="w-full h-full">
             <path
               d="M0,100 C150,200 350,0 500,100 C650,200 750,300 1000,100 L1000,00 L0,0 Z"
               fill="currentColor"
-              className="text-blue-500"
+              className="text-blue-100"
             ></path>
           </svg>
         </div>
 
-        <div className="absolute top-20 left-10 w-24 h-24 rounded-full bg-blue-500/10 animate-pulse"></div>
-        <div className="absolute bottom-10 right-20 w-32 h-32 rounded-full bg-red-500/10 animate-pulse delay-700"></div>
+        {/* Floating Circles */}
+        <div className="absolute top-20 left-10 w-28 h-28 rounded-full bg-blue-100 animate-pulse"></div>
+        <div className="absolute bottom-10 right-20 w-36 h-36 rounded-full bg-red-100 animate-pulse delay-700"></div>
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-blue-100 animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-6 h-6 rounded-full bg-blue-200/80 animate-bounce-slow"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-4 h-4 rounded-full bg-red-200/80 animate-bounce-slow delay-500"></div>
+        <div className="absolute top-1/2 left-1/3 w-5 h-5 rounded-full bg-blue-200/80 animate-bounce-slow delay-700"></div>
 
-        <div className="container mx-auto px-4 py-24 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="md:w-1/2">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeInDown">
-                  Logbook Loans for{" "}
-                  <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
-                    Instant Cash
-                  </span>
-                </h1>
-                <p className="text-xl text-blue-100 mb-8 animate-fadeInDown delay-150">
-                  Unlock the value in your vehicle without selling it. Get cash
-                  in 24 hours while keeping your car!
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <button className="bg-gradient-to-r from-blue-600 to-red-600 text-white font-bold px-8 py-4 rounded-lg hover:from-blue-700 hover:to-red-700 transition-all">
-                    Apply Now
-                  </button>
-                  <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-all">
-                    How It Works
-                  </button>
-                </div>
+        {/* Main Container */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            {/* Left Text Content */}
+            <div className="md:w-1/2">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeInDown">
+                Logbook Loans for{" "}
+                <span className="bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent">
+                  Instant Cash
+                </span>
+              </h1>
+              <p className="text-xl text-gray-700 mb-8 animate-fadeInDown delay-150">
+                Unlock the value in your vehicle without selling it. Get cash in
+                24 hours while keeping your car!
+              </p>
+              <div className="flex flex-wrap gap-4 animate-fadeIn delay-300">
+                <button className="bg-gradient-to-r from-blue-600 to-red-600 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
+                  Apply Now
+                </button>
               </div>
-              <div className="md:w-1/2 flex justify-center">
-                <div className="relative">
-                  <div className="bg-gradient-to-r from-blue-600 to-red-600 w-64 h-64 rounded-full flex items-center justify-center opacity-20 absolute -top-6 -left-6 animate-pulse"></div>
-                  <div className="bg-gradient-to-r from-red-600 to-blue-600 w-64 h-64 rounded-full flex items-center justify-center opacity-20 absolute -bottom-6 -right-6 animate-pulse delay-700"></div>
-                  <div className="bg-gray-200 border-2 border-dashed rounded-xl w-80 h-80 relative z-10" />
-                </div>
-              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="md:w-1/2 flex justify-center">
+              <Image
+                src="/images/log-book.svg"
+                alt="Hero Image"
+                width={600}
+                height={600}
+                className="object-contain w-full h-auto sm:h-[400px] md:h-[500px]"
+              />
             </div>
           </div>
         </div>

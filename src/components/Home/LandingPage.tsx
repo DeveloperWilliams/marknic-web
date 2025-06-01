@@ -2,18 +2,13 @@
 import { useState, useEffect, useRef } from "react";
 import {
   ArrowRightIcon,
-  CheckCircleIcon,
   CurrencyDollarIcon,
   ClockIcon,
-  DocumentTextIcon,
-  UserGroupIcon,
-  ChartBarIcon,
-  DevicePhoneMobileIcon,
   ShieldCheckIcon,
-  XMarkIcon,
-  Bars3Icon,
+  
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 
 const LandingPage = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -141,9 +136,9 @@ const LandingPage = () => {
                 days.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-fadeIn delay-300">
-                <button className="bg-gradient-to-r from-blue-600 to-red-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
+                <Link href="/products" className="bg-gradient-to-r from-blue-600 to-red-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
                   Apply for a Loan
-                </button>
+                </Link>
                 <button className="bg-transparent border-2 border-gray-900 text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all">
                   How It Works
                 </button>

@@ -14,6 +14,7 @@ import {
   ChartBarIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 const PersonalLoansPage = () => {
   const [loanAmount, setLoanAmount] = useState(150000);
@@ -86,50 +87,58 @@ const PersonalLoansPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-white-100 via-grey to-grey-800 text-white h-min-screen">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <svg viewBox="0 0 1000 800" className="w-full h-full">
-            <path
-              d="M0,100 C150,200 350,0 500,100 C650,200 750,300 1000,100 L1000,00 L0,0 Z"
-              fill="currentColor"
-              className="text-blue-500"
-            ></path>
-          </svg>
+      <div className="relative pt-28 md:pt-20 pb-20 md:pb-28 bg-gradient-to-r from-blue-50 via-white to-rose-50 text-gray-900 overflow-hidden">
+        {/* Floating Elements */}
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+          <div className="absolute top-20 left-10 w-36 h-36 rounded-full bg-blue-100 animate-pulse"></div>
+          <div className="absolute bottom-10 right-20 w-48 h-48 rounded-full bg-red-100 animate-pulse delay-1000"></div>
+          <div className="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-blue-200 animate-pulse delay-500"></div>
+
+          {/* Decorative bouncing circles */}
+          <div className="absolute top-1/4 left-1/4 w-5 h-5 rounded-full bg-blue-300/80 animate-bounce-slow"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-4 h-4 rounded-full bg-red-300/80 animate-bounce-slow delay-500"></div>
+          <div className="absolute top-1/2 left-1/3 w-4 h-4 rounded-full bg-blue-300/80 animate-bounce-slow delay-700"></div>
         </div>
 
-        <div className="absolute top-20 left-10 w-24 h-24 rounded-full bg-blue-500/10 animate-pulse"></div>
-        <div className="absolute bottom-10 right-20 w-32 h-32 rounded-full bg-red-500/10 animate-pulse delay-700"></div>
-
-        <div className="container mx-auto px-4 py-36 md:py-30 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="md:w-1/2">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeInDown text-blue-700">
-                  Personal Loans for{" "}
-                  <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
-                    Your Financial Freedom
-                  </span>
-                </h1>
-                <p className="text-xl text-black mb-8 animate-fadeInDown delay-150">
-                  Get the funds you need for life's opportunities - no
-                  collateral required. Quick approvals and flexible repayment
-                  options.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <button className="bg-gradient-to-r from-blue-600 to-red-600 text-white font-bold px-8 py-4 rounded-lg hover:from-blue-700 hover:to-red-700 transition-all">
-                    Apply Now
-                  </button>
-                  <button className="bg-blue-700 border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white/10 transition-all">
-                    Check Eligibility
-                  </button>
-                </div>
+        {/* Content Container */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left Side - Text */}
+            <div className="md:w-1/2">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeInDown text-blue-700">
+                Personal Loans for{" "}
+                <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+                  Your Financial Freedom
+                </span>
+              </h1>
+              <p className="text-xl text-gray-700 mb-8 animate-fadeInDown delay-150">
+                Access instant financing without the need for collateral. Our
+                personal loans are fast, hassle-free, and designed to support
+                your goals—whether it's school, emergency needs, or personal
+                projects.
+              </p>
+              <div className="flex flex-wrap gap-4 animate-fadeIn delay-300">
+                <button className="bg-gradient-to-r from-blue-600 to-red-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
+                  Apply Now
+                </button>
+                <button className="bg-transparent border-2 border-gray-900 text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all">
+                  Check Eligibility
+                </button>
               </div>
-              <div className="md:w-1/2 flex justify-center">
-                <div className="relative">
-                  <div className="bg-gradient-to-r from-blue-600 to-red-600 w-64 h-64 rounded-full flex items-center justify-center opacity-20 absolute -top-6 -left-6 animate-pulse"></div>
-                  <div className="bg-gradient-to-r from-red-600 to-blue-600 w-64 h-64 rounded-full flex items-center justify-center opacity-20 absolute -bottom-6 -right-6 animate-pulse delay-700"></div>
-                  <div className="bg-gray-200 border-2 border-dashed rounded-xl w-80 h-80 relative z-10" />
-                </div>
+            </div>
+
+            {/* Right Side - Image */}
+            <div className="md:w-1/2 flex justify-center">
+              <div className="relative">
+                <div className="bg-gradient-to-r from-blue-500 to-red-500 w-64 h-64 rounded-full absolute -top-6 -left-6 opacity-20 animate-pulse"></div>
+                <div className="bg-gradient-to-r from-red-500 to-blue-500 w-64 h-64 rounded-full absolute -bottom-6 -right-6 opacity-20 animate-pulse delay-700"></div>
+                <Image
+                  src="/images/personal-loan.svg"
+                  alt="Loan Hero Image"
+                  width={600}
+                  height={600}
+                  className="object-contain w-full h-auto sm:h-[400px] md:h-[500px] z-10 relative"
+                />
               </div>
             </div>
           </div>
