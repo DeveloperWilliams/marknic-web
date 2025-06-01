@@ -9,12 +9,32 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+
+
 const LandingPage = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const statsRef = useRef(null);
   const [statsInView, setStatsInView] = useState(false);
+
+
+  const StarRating = ({ count = 5 }) => (
+  <div className="flex space-x-0.5 mb-3">
+    {Array(count)
+      .fill(0)
+      .map((_, i) => (
+        <svg
+          key={i}
+          className="w-5 h-5 text-[#fbbc04] fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+        >
+          <path d="M10 15l-5.878 3.09L5.4 12.18 1 8.09l6.09-.909L10 2l2.91 5.181L19 8.09l-4.4 4.09 1.278 5.91z" />
+        </svg>
+      ))}
+  </div>
+);
 
   // Handle scroll for navbar
   useEffect(() => {
@@ -87,21 +107,21 @@ const LandingPage = () => {
       role: "Small Business Owner",
       content:
         "MarkNic helped my business survive during tough times. Their logbook loan process was fast and professional. I got the funds I needed within 24 hours!",
-      avatar: "/images/testimonial1.jpg",
+      avatar: "/images/manager.png",
     },
     {
       name: "Sarah Akinyi",
       role: "Teacher",
       content:
         "I needed funds for my daughter's education. MarkNic provided a personal loan with reasonable terms. Their customer service is exceptional.",
-      avatar: "/images/testimonial2.jpg",
+      avatar: "/images/why.jpg",
     },
     {
       name: "David Ochieng",
       role: "Entrepreneur",
       content:
         "The business loan I received helped me expand my shop. The repayment terms are flexible, and the staff is always ready to assist.",
-      avatar: "/images/testimonial3.jpg",
+      avatar: "/images/3.png",
     },
   ];
 
@@ -345,77 +365,54 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+ 
+ <div className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            What our customers are saying
+          </h2>
+          <p className="text-gray-600">
+            Real feedback from people who improved their financial lives with Marknic Credit.
+          </p>
+        </div>
 
-      {/* Testimonials */}
-      <div className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block mb-4">
-              <span className="text-sm font-semibold tracking-wide uppercase bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
-                Testimonials
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Client Success Stories
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Hear from satisfied customers who have transformed their financial
-              situation
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-2 bg-blue-600 rounded-t-2xl"></div>
-              <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-blue-100 z-0"></div>
-              <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-green-100 z-0"></div>
-
-              <div className="text-center relative z-10">
-                <div className="bg-gray-200 border-2 border-gray-300 rounded-full w-16 h-16 mx-auto mb-6 overflow-hidden">
-                  {testimonials[activeTestimonial]?.avatar && (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="bg-gray-300 border-2 border-dashed rounded-full w-14 h-14" />
-                    </div>
-                  )}
-                </div>
-
-                <div className="min-h-[150px] md:min-h-[200px]">
-                  {testimonials.map((testimonial, index) => (
-                    <div
-                      key={index}
-                      className={`transition-all duration-500 ease-in-out ${
-                        activeTestimonial === index
-                          ? "opacity-100 block"
-                          : "opacity-0 hidden"
-                      }`}
-                    >
-                      <p className="text-xl text-gray-700 italic mb-8">
-                        "{testimonial.content}"
-                      </p>
-                      <h4 className="text-xl font-bold">{testimonial.name}</h4>
-                      <p className="text-gray-600">{testimonial.role}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex justify-center mt-8 space-x-2">
-                  {[0, 1, 2].map((index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-all ${
-                        activeTestimonial === index
-                          ? "bg-blue-600 scale-125"
-                          : "bg-gray-300"
-                      }`}
-                    />
-                  ))}
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                {testimonial.avatar ? (
+                  <Image
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
+                ) : (
+                  <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-semibold text-lg">
+                    {testimonial.name[0]}
+                  </div>
+                )}
+                <div>
+                  <h4 className="font-bold">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
                 </div>
               </div>
+
+              <StarRating count={5} />
+
+              <p className="text-gray-700 text-[15px] leading-relaxed italic">
+                “{testimonial.content}”
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
+    </div>
 
       {/* Stats Section */}
       <div
