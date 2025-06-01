@@ -5,7 +5,6 @@ import {
   CurrencyDollarIcon,
   ClockIcon,
   ShieldCheckIcon,
-  
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -136,12 +135,17 @@ const LandingPage = () => {
                 days.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-fadeIn delay-300">
-                <Link href="/products" className="bg-gradient-to-r from-blue-600 to-red-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
-                  Apply for a Loan
-                </Link>
-                <button className="bg-transparent border-2 border-gray-900 text-gray-900 font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all">
-                  How It Works
-                </button>
+                <div className="flex flex-col items-center">
+                  <Link
+                    href="/products"
+                    className="bg-gradient-to-r from-blue-600 to-red-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+                  >
+                    Apply for a Loan
+                  </Link>
+                  <span className="mt-2 text-center text-gray-600 text-sm">
+                    Fast approval & flexible terms
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -210,16 +214,15 @@ const LandingPage = () => {
 
       {/* Why Choose Us */}
       {/* Why Choose Us */}
-      <div className="py-16 bg-blue-50 text-gray-900">
+      <div className="py-6 bg-blue-50 text-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-12 md:mb-0">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <div className="bg-gray-100 border-2 border-gray-100 rounded-2xl w-full h-80 md:h-96 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-green-100/20"></div>
+              <div className="relative overflow-hidden">
+                <div className=" relative overflow-hidden">
                   <div className="w-full h-full flex items-center justify-center">
                     <Image
-                      src="/images/Why.svg"
+                      src="/images/Why1.svg"
                       alt="Why Choose Us"
                       width={600}
                       height={500}
