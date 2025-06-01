@@ -80,7 +80,7 @@ const ContactPage = () => {
     {
       icon: <PhoneIcon className="h-8 w-8 text-white" />,
       title: "Call Us",
-      details: "+254 712 345 678",
+      details: "+254 (0) 715 04-6021",
       action: "Call Now",
       color: "bg-gradient-to-r from-blue-600 to-red-600",
     },
@@ -356,8 +356,8 @@ const ContactPage = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="font-bold text-lg">Phone Numbers</h3>
-                    <p className="text-gray-600 mt-1">+254 712 345 678</p>
-                    <p className="text-gray-600">+254 734 567 890</p>
+                    <p className="text-gray-600 mt-1">+254 (0) 715 04-6021</p>
+                    <p className="text-gray-600">+254 (0) 715 04-6021</p>
                   </div>
                 </div>
 

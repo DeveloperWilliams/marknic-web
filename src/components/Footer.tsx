@@ -100,7 +100,7 @@ const Footer = () => {
               {[
                 {
                   icon: <PhoneIcon className="h-5 w-5" />,
-                  text: "+254 712 345 678",
+                  text: "+254 (0) 715 04-6021",
                 },
                 {
                   icon: <ChatBubbleLeftIcon className="h-5 w-5" />,
@@ -233,7 +233,7 @@ const Footer = () => {
             Central Bank of Kenya.
           </p>
           <div className="flex items-center">
-            <p className="text-gray-400 text-sm mr-2">Technology by</p>
+            <p className="text-gray-400 text-sm mr-2">Built by</p>
             <a
               href="https://willsoft.co.ke"
               target="_blank"
