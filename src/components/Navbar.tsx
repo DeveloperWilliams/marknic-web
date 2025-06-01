@@ -115,7 +115,7 @@ const Navbar = () => {
 
                     {/* Products dropdown */}
                     {isProductsHovered && (
-                      <div className="absolute left-0 mt-2 w-56 rounded-xl bg-white shadow-lg border border-gray-100 z-50 overflow-hidden">
+                      <div className="absolute left-0 mt-0 w-56 rounded-xl bg-white shadow-lg border border-gray-100 z-50 overflow-hidden">
                         <div className="py-2">
                           {link.subLinks.map((subLink) => (
                             <Link
@@ -225,13 +225,19 @@ const Navbar = () => {
       >
         <div className="h-full flex flex-col">
           <div className="flex justify-between items-center p-6 border-b border-gray-100">
-            <div className="flex items-center">
-              <div className="bg-gradient-to-r from-blue-600 to-red-600 w-10 h-10 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold">N</span>
-              </div>
-              <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
-                Marknic Credit
-              </span>
+            <div className="flex justify-between items-center">
+              <Link href="/" className="group inline-block">
+                <div className="relative">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Marknic Credit Logo"
+                    className="object-contain"
+                    width={120}
+                    height={120}
+                    priority
+                  />
+                </div>
+              </Link>
             </div>
             <button
               onClick={closeMobileMenu}

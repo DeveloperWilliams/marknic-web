@@ -115,8 +115,7 @@ const GroupLoansPage = () => {
               </h1>
               <p className="text-xl text-gray-700 mb-8 animate-fadeIn delay-150">
                 Empower your SACCO, chama, or organization with larger loan
-                limits, lower interest, and joint accountability. Perfect for
-                communities working together.
+                limits, lower interest, and joint accountability. 
               </p>
               <div className="flex flex-wrap gap-4 animate-fadeIn delay-300">
                 <button className="bg-gradient-to-r from-blue-600 to-red-500 text-white font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
@@ -501,9 +500,10 @@ const GroupLoansPage = () => {
         </div>
       </div>
 
+   
       {/* Floating WhatsApp Button */}
-    {/* Floating WhatsApp Button */}
-       
+
+  
       <div className="fixed bottom-6 right-6 z-50 animate-bounce-slow">
         <a
           href="#"
