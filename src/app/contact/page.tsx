@@ -11,6 +11,7 @@ import {
   DevicePhoneMobileIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+import emailjs from "@emailjs/browser";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -37,23 +38,34 @@ const ContactPage = () => {
     setIsSubmitting(true);
     setSubmitError("");
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "General Inquiry",
-        message: "",
-      });
+    // Replace these with your actual EmailJS service ID, template ID, and public key
+    const serviceID = "service_gu8t3b7";
+    const templateID = "template_tpyp0sj";
+    const publicKey = "nZbdHf_7SjMIjlUi9";
 
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
-    }, 1500);
+    emailjs
+      .sendForm(serviceID, templateID, e.target, publicKey)
+      .then(() => {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "General Inquiry",
+          message: "",
+        });
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        setIsSubmitting(false);
+        setSubmitError("Failed to send message. Please try again later.");
+        console.error("EmailJS error:", error);
+      });
   };
 
   // Animation on scroll
@@ -451,7 +463,7 @@ const ContactPage = () => {
       </div>
 
       {/* Floating WhatsApp Button */}
-       
+
       <div className="fixed bottom-6 right-6 z-50 animate-bounce-slow">
         <a
           href="#"
