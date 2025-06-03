@@ -99,7 +99,7 @@ const ContactPage = () => {
     {
       icon: <EnvelopeIcon className="h-8 w-8 text-white" />,
       title: "Email Us",
-      details: "support@marknic.co.ke",
+      details: "info@marknic.co.ke",
       action: "Send Email",
       color: "bg-gradient-to-r from-red-600 to-blue-600",
     },

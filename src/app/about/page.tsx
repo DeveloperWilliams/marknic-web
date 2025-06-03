@@ -17,7 +17,7 @@ const AboutUsPage = () => {
 
   const teamMembers = [
     {
-      name: "Mark Johnson",
+      name: "Nicholas Macharia",
       role: "CEO & Founder",
       bio: "20+ years in financial services with expertise in risk management and business strategy.",
       image: "/images/ceo.jpg",

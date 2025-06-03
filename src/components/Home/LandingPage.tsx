@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { title } from "process";
 
 
 
@@ -81,6 +82,12 @@ const LandingPage = () => {
       href: "/products/group-loans",
       image: "/images/group-loan.jpg",
     },
+    {
+      title: "Asset Finance",
+      description: "Finance your business assets with flexible repayment terms.",
+      href: "/products/asset-finance",
+      image: "/images/asset-finance.jpg",
+    }
   ];
 
   const features = [
