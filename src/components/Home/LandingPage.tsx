@@ -244,7 +244,7 @@ const LandingPage = () => {
                     <Image
                       src="/images/Why1.svg"
                       alt="Why Choose Us"
-                      width={600}
+                      width={500}
                       height={500}
                       className="object-cover w-full h-full"
                       priority
